@@ -11,8 +11,10 @@ factorial of it. For example: if num = 4, then your program should return (4 * 3
 For the test cases, the range will be between 1 and 18 and the input will always be an integer.
 """
 def RecursionChallenge(num):
-    # Todo: your code goes here
-    pass
+    if num == 1:
+        return 1
+    return num * RecursionChallenge(num - 1)
+
 
 """
 Q2. Power Sets
@@ -32,8 +34,7 @@ For example: if arr is [1, 2, 3], then the following sets form the power set:
 Hence with the given example, the output will be 8.
 """
 def SetChallenge(arr):
-    # Todo: your code goes here
-    pass
+    return 2 ** len(arr)
 
 
 """
@@ -48,8 +49,32 @@ The array will contain any number of 0's and 2's, but only a single 1.
 It may not contain any 2's at all as well, where in that case your program should return a 0.
 """
 def ArrayChallenge(arr):
-    # Todo: your code goes here
-    pass
+    if 2 not in arr:
+        return 0
+
+    one_index = arr.index(1)
+    left_two_closest_index = -1
+    i = one_index - 1
+    while i >= 0:
+        if arr[i] == 2:
+            left_two_closest_index = i
+            break
+        i -= 1
+    right_two_closest_index = len(arr)
+    i = one_index + 1
+    while i < len(arr):
+        if arr[i] == 2:
+            right_two_closest_index = i
+            break
+        i += 1
+
+    if left_two_closest_index == -1:
+        return abs(one_index - right_two_closest_index)
+    if right_two_closest_index == len(arr):
+        return abs(one_index - left_two_closest_index)
+    ret = min(abs(one_index - left_two_closest_index), abs(one_index - right_two_closest_index))
+
+    return ret
 
 
 
@@ -61,8 +86,13 @@ Have the function StringChallenge(str) insert dashes ('-') between each two odd 
 For example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number.
 """
 def StringChallenge(str):
-    # Todo: your code goes here
-    pass
+    result = ''
+    for i in range(len(str) - 1):
+        result += str[i]
+        if int(str[i]) % 2 == 1 and int(str[i + 1]) % 2 == 1:
+            result += '-'
+    result += str[-1]
+    return result
 
 
 def testRecursionChallenge():
@@ -131,7 +161,6 @@ def testStringChallenge():
 
 
 def testAll():
-    # Comment out the tests you do not wish to run!
     testRecursionChallenge()
     testSetChallenge()
     testArrayChallenge()
