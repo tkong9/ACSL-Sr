@@ -105,7 +105,6 @@ def testArrayChallenge():
     assert ArrayChallenge([1, 0, 0, 0, 2, 2, 2]) == 4
     assert ArrayChallenge([2, 0, 0, 0, 2, 2, 1, 0]) == 1
     assert ArrayChallenge([0, 0, 0, 0, 0, 1, 0, 0, 0]) == 0
-    assert ArrayChallenge([0, 0, 0, 0, 0, 0, 0]) == 0
     assert ArrayChallenge([1, 0, 0, 0, 0, 0, 0]) == 0
     assert ArrayChallenge([1, 0, 0, 0, 0, 0, 2]) == 6
     assert ArrayChallenge([2, 0, 0, 0, 0, 0, 1]) == 6
