@@ -175,7 +175,6 @@ def test_is_balanced():
     assert is_balanced('[([]{})]((())){}') == True
     assert is_balanced('[([]{})]()[{}]') == True
     assert is_balanced('[([]{})][(){}]') == True
-    # false examples
     assert is_balanced('[') == False
     assert is_balanced(']') == False
     assert is_balanced('][') == False
