@@ -412,6 +412,7 @@ def test_hex_to_oct():
 
 
 def test_all():
+    # comment out the tests you do not wish to run!
     test_dec_to_bin()
     test_bin_to_dec()
     test_dec_to_hex()

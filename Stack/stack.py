@@ -187,6 +187,7 @@ def test_is_balanced():
 
 
 def test_all():
+    # comment out the tests you do not wish to run!
     test_stack()
     test_reverse_string()
     test_is_balanced()
