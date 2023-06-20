@@ -1,3 +1,7 @@
+"""
+Name: <your name>
+"""
+
 #
 # Complete the 'fibCypher' function below. #
 # The function is expected to return a STRING.
