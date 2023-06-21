@@ -100,6 +100,8 @@ def reverse_string(s):
 
 
 # Function to check if parentheses are balanced
+# You can assume that the string only contains braces and no other characters.
+# The braces consist of (), [], and {}. You can also assume that empty string is balanced.
 # s: string
 # return: True if balanced, False otherwise
 def is_balanced(s):
