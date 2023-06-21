@@ -88,6 +88,9 @@ class Stack:
         pass
 
 
+# Use the Stack class you implemented above to solve the following problems
+
+
 # Function to reverse a string using a stack
 # s: string
 # return: reversed string
@@ -183,6 +186,10 @@ def test_is_balanced():
     assert is_balanced('[(]{})') == False
     assert is_balanced('[([]{})](){}]') == False
     assert is_balanced('()[][([]{})](){}(') == False
+    assert is_balanced('{{{{{{{{{') == False
+    assert is_balanced('}}}}}}}}') == False
+    assert is_balanced('(}') == False
+    assert is_balanced('[(])') == False
     print('Passed!')
 
 
