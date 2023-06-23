@@ -21,8 +21,7 @@ def fibonacci (n):
 
 
 def fibCypher(option, num1, num2, key, msg):
-    # hints: use the fibonacci function above
-    #        use the alphabet list below
+    # hints: use the alphabet list below
     #        use the ord() and chr() functions
     #        use ASCII arithmetic
     final = ""
