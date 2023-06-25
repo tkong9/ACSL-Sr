@@ -107,7 +107,12 @@ class LinkedList:
         Returns:
             A list containing the data from each node.
         """
-        # TODO: Write your code here
+        nodes = []
+        curr_node = self.head
+        while curr_node:
+            nodes.append(curr_node.data)
+            curr_node = curr_node.next
+        return nodes
 
 
 
