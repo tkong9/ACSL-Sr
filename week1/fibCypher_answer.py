@@ -29,7 +29,32 @@ def fibCypher(option, num1, num2, key, msg):
     alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     # Write your code here
-    pass
+
+    for _ in msg:
+        next_fib = fibSequence[-2] + fibSequence[-1]
+        fibSequence.append(next_fib)
+
+    if option == "E":
+        for i, c in enumerate(msg, start=0):
+            if i % 2 == 0:
+                newOffsetIndex = (alphabet.index(key) + fibSequence[i]) % 26
+                final += str(ord(c) + (3 * ord(alphabet[newOffsetIndex]))) + " "
+            else:
+                newOffsetIndex = (alphabet.index(key) - fibSequence[i]) % 26
+                final += str(ord(c) + (3 * ord(alphabet[newOffsetIndex]))) + " "
+        return final
+    else:
+        decodeList = msg.split()
+        for i, num in enumerate(decodeList, start=0):
+            if i % 2 == 0:
+                newOffsetIndex = (alphabet.index(key) + fibSequence[i]) % 26
+                decodedChar = chr(int(num) - (3 * ord(alphabet[newOffsetIndex])))
+                final += decodedChar
+            else:
+                newOffsetIndex = (alphabet.index(key) - fibSequence[i]) % 26
+                decodedChar = chr(int(num) - (3 * ord(alphabet[newOffsetIndex])))
+                final += decodedChar
+        return final
 
 
 def testFibCypher():
