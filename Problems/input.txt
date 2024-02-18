@@ -1,0 +1,17 @@
+2
+rnbqkbnk
+pppppppp
+........
+........
+........
+........
+PPPPPPPP
+RNBQKBNK
+RRRRRRRR
+RRRRRRRR
+RRRRRRRR
+RRRRRRRR
+rrrrrrrr
+rrrrrrrr
+rrrrrrrr
+rrrrrrrk
