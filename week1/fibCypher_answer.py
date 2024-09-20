@@ -29,7 +29,6 @@ def fibCypher(option, num1, num2, key, msg):
     alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     # Write your code here
-
     for _ in msg:
         next_fib = fibSequence[-2] + fibSequence[-1]
         fibSequence.append(next_fib)

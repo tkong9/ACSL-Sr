@@ -19,7 +19,6 @@ def calcDigits(s):
     :param s:
     :return:
     '''
-    print(hex(s))
     string = hex(s)[2:] # convert to hexadecimal
     tot = 0
     for num in string:
@@ -28,25 +27,25 @@ def calcDigits(s):
 
 
 def sumOfLastRow(s, d, r):
-    s = int(s, 16) # convert to decimal
-    d = int(d, 16) # convert to decimal
+    start_decimal = int(s, 16) # convert to decimal
+    difference_decimal = int(d, 16) # convert to decimal
+    row_length = r
 
-    s += d * (r - 1) * r // 2 # calculate the first number of the last row
+    start_decimal += difference_decimal * (row_length - 1) * row_length // 2 # calculate the first number of the last row
 
-    sumDigits = 0
+    sum_digits = 0
 
     # calculate the sum of digits of the last row
-    for _ in range(r):
-        sumDigits += calcDigits(s)
-        s += d
-
-    h = hex(sumDigits)[2:]
+    for _ in range(row_length):
+        sum_digits += calcDigits(start_decimal)
+        start_decimal += difference_decimal
 
     # calculate the sum of digits of the last row until it is a single digit
-    while len(h) > 1:
-        sumDigits = calcDigits(sumDigits)
-        h = hex(sumDigits)[2:]
-    return h.capitalize()
+    sum_digits_hex = hex(sum_digits)[2:]
+    while len(sum_digits_hex) > 1:
+        sum_digits = calcDigits(sum_digits)
+        sum_digits_hex = hex(sum_digits)[2:]
+    return sum_digits_hex.capitalize()
 
 
 if __name__ == '__main__':

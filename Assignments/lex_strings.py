@@ -13,10 +13,10 @@ from collections import Counter, defaultdict
 #  1. STRING s
 #
 
+
 # 1. This function will filter the alphanumeric characters from the string and sort them.
 def filter_and_sort(s):
-    alphanumeric_chars_list = [ch for ch in s if ch.isalnum()]
-    alphanumeric_chars = ''.join(alphanumeric_chars_list)
+    alphanumeric_chars = ''.join(ch for ch in s if ch.isalnum())
     return sorted(alphanumeric_chars, reverse=True)
 
 
@@ -42,18 +42,19 @@ def alternate_sort(groups):
     return sorted_groups
 
 
-# 4.
+# 4. This function will take the sorted groups and format the result as required.
 def format_result(sorted_groups):
     return ','.join(f"{count}{chars}" for count, chars in sorted_groups)
 
+
 def rearrangedString(s):
-    # Write your code here
     '''
     1. Extract alphanumeric characters: We'll start by extracting only alphanumeric characters from the input string.
     2. Create frequency groups: We'll group characters by their frequency, preserving the order of characters within each group.
     3. Sort and alternate groups: We'll sort the groups by frequency, and then apply the alternating order rule within each group.
     4. Concatenate and format: Finally, we'll concatenate the groups and format the result as required.
     '''
+    # 1.
     sorted_chars = filter_and_sort(s)
     groups = group_by_count(sorted_chars)
     sorted_groups = alternate_sort(groups)

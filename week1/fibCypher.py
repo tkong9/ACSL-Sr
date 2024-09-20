@@ -29,7 +29,81 @@ def fibCypher(option, num1, num2, key, msg):
     alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     # Write your code here
-    pass
+
+    for _ in msg:
+        next_fib = fibSequence[-2] + fibSequence[-1]
+        fibSequence.append(next_fib)
+
+    if option == 'E':
+        return encrypt(num1, num2, key, msg, fibSequence)
+    else:
+        return decrypt(num1, num2, key, msg, fibSequence)
+def encrypt(num1, num2, key, msg, fibSequence):
+    message = []
+    result = []
+    final = ""
+    for n in msg:
+        message.append(n)
+
+    for r in range(len(message)):
+        letter_code = ord(message[r])
+        real_f_number = fibSequence[r]
+        if r % 2 == 0:
+            number = ord(key) + real_f_number
+        else:
+            number = ord(key) - real_f_number
+        if number > 122:
+            # while number > 122: # infinite loop
+                number = number - 26
+        if number < 97:
+            while number < 97: # infinite loop
+                number = number + 26
+                print('number', number)
+        result.append(str(letter_code + 3 * number))
+
+    for n in result:
+        final = final + n + " "
+    return final
+
+def decrypt(num1, num2, key, msg, fibSequence):
+    message = msg.split()
+    result = []
+    final = ""
+    for r in range(len(message)):
+        received_number = int(message[r])
+        real_f_number = fibSequence[r]
+        if r % 2 == 0:
+            number = ord(key) + real_f_number
+        else:
+            number = ord(key) - real_f_number
+        if number > 122:
+            while number > 122:
+                number = number - 26
+        if number < 97:
+            while number < 97:
+                number = number + 26
+        want_number = received_number - 3 * number
+        result.append(chr(want_number))
+
+    for n in result:
+        final = final + str(n) + " "
+    return final
+
+
+# def fibo(k, number1, number2):
+#     n1 = number1
+#     n2 = number2
+#     final = 0
+#     if k == 0:
+#         final = n1
+#     elif k == 1:
+#         final = n2
+#     else:
+#         for n in range(k-1):
+#             final = n1 + n2
+#             n1 = n2
+#             n2 = final
+#     return final
 
 
 def testFibCypher():

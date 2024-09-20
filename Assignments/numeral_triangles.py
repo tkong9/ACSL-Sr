@@ -13,44 +13,11 @@ Name: <your name>
 #  3. INTEGER r
 #
 
-def calcDigits(s):
-    '''
-    Calculate the sum of digits of a number.
-    :param s:
-    :return:
-    '''
-    print(hex(s))
-    string = hex(s)[2:] # convert to hexadecimal
-    tot = 0
-    for num in string:
-        tot += int(num, 16)
-    return tot
-
-
 def sumOfLastRow(s, d, r):
-    s = int(s, 16) # convert to decimal
-    d = int(d, 16) # convert to decimal
-
-    s += d * (r - 1) * r // 2 # calculate the first number of the last row
-
-    sumDigits = 0
-
-    # calculate the sum of digits of the last row
-    for _ in range(r):
-        sumDigits += calcDigits(s)
-        s += d
-
-    h = hex(sumDigits)[2:]
-
-    # calculate the sum of digits of the last row until it is a single digit
-    while len(h) > 1:
-        sumDigits = calcDigits(sumDigits)
-        h = hex(sumDigits)[2:]
-    return h.capitalize()
+    # Write your code here
 
 
 if __name__ == '__main__':
-    import sys
     '''
     Read test cases from stdin.
     To test your solution, make 'triangle_numeral_sample_data.txt'
@@ -59,6 +26,7 @@ if __name__ == '__main__':
     and run this code.
     (Sample data is also available below)
     '''
+    import sys
     sys.stdin = open('triangle_numeral_sample_data.txt', 'r')
 
     for i in range(10):
